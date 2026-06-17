@@ -1,9 +1,26 @@
-import { useMemo, useState } from "react"
+import { useMemo, useState, useEffect } from "react"
 import ParticlesBackground from "../components/ParticlesBackground"
 import { motion } from "framer-motion"
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6"
+import avator from "../assets/avator.png"
+
+const socials = [
+  { Icon: FaXTwitter, label: "X", href: "https://x.com/SohalDhruv1254" },
+  { Icon: FaGithub, label: "GitHub", href: "https://github.com/DHRUVSOHAL" },
+  { Icon: FaLinkedin, label: "Linkdin", href: "https://www.linkedin.com/in/dhruv-sohal-474519372?utm_source=share_via&utm_content=profile&utm_medium=member_android" }
+]
+const glowVarients = {
+  initial: { scale: 1, y: 0, filter: "drop-shadow(0 0 0 rgba(0,0,0,0))" },
+  hover: {
+    scale: 1.2, y: -3,
+    filter: "drop-shadow(0 0 8px rgba(13,88,204,0.9)) drop-shadow(0 0 18px rgba(16,185,129,0.8))",
+    transition: { type: "spring", stiffness: 300, damping: 15 }
+  },
+  tap: { scale: 0.95, y: 0, transition: { duration: 0.08 } }
+}
 export default function Home() {
 
-  const roles = useMemo(() => ["Software Developer", "Wev Deveplor"], [])
+  const roles = useMemo(() => ["Software Developer", "Web Deveplor"], [])
 
   const [index, setIndex] = useState(0)
   const [subIndex, setSubIndex] = useState(0)
@@ -17,9 +34,18 @@ export default function Home() {
       if (!deleting && subIndex < current.length) setSubIndex(v => v + 1)
       else if (!deleting && subIndex == current.length) setTimeout(() => setDeleting(true), 1200)
       else if (deleting && subIndex > 0) setSubIndex(v => v - 1)
+      else if (deleting && subIndex == 0) {
+        setDeleting(false);
+        setIndex(p => (p + 1) % roles.length)
 
-    })
-  })
+
+      }
+    }, deleting ? 40 : 60)
+
+    return () => {
+      clearTimeout(timeout)
+    }
+  }, [subIndex, index, deleting, roles])
 
   return (
     <section
@@ -59,10 +85,111 @@ export default function Home() {
 
       </div>
       <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
-        <div className="flex flex-col justify-center h-full text-center lg:text-left relative">
-          <div className="w-full lg:pr-24 mx-auto max-w-[480rem">
+        <div className="flex flex-col justify-center h-full text-center ">
+          <div className="w-full lg:pr-24 mx-auto max-w-[480rem]">
+            <motion.div
+              className="mb-3 text-xl sm:text-2xl md:text-4xl font-semibold text-white tracking-wide min-h-[1.6em]"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <span>
+                {roles[index].substring(0, subIndex)}
+              </span>
+              <span className="inline-block w-[2px] ml-1 bg-white animate-pulse align-middle"
+                style={{ height: "1em" }}></span>
+            </motion.div>
+            <motion.h1 className=" text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text
+            bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b83] drop-shadow-lg "
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              Hello,I'M
+              <br />
+              <span
+                className=" text-white font-bold text-3xl sm:text-4xl md:text-6xl lg:text-7xl  lg:whitespace-nowrap">
+                DHRUV SOHAL</span>
+            </motion.h1>
+            <motion.p className="mt-6 text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 "
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 1.2 }}>
+              Turning complex ideas into elegant and impactful web experiences.
+            </motion.p>
+            <motion.div className="mt-10 flex flex-wrap items-center justify-center gap-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.8 }}>
+              <a href="#projects"
+                className="px-6 py-3 rounded-full font-medium text-lg text-white 
+              bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63]
+              shadow-lg hover:scale-105 transition-opacity
+              ">View My Work</a>
+              <a href="/Resume.pdf"
+                download
+                className="px-6 py-3 rounded-full font-medium text-lg text-white
+              bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63]
+              shadow-lg hover:scale-105 transition-all
+              ">Resume</a>
+
+
+            </motion.div>
+            <motion.div
+              className="mt-10 flex gap-10 text-2xl md:text-3xl justify-center">
+              {socials.map(({ Icon, label, href }) => {
+                return (
+                  <motion.a
+                    href={href}
+                    key={label}
+                    target="_blank"
+                    aria-label={label}
+                    rel="noopener noreferrer"
+                    variants={glowVarients}
+                    initial="initial"
+                    whileHover="hover"
+                    whileTap="tap"
+                    className="text-gray-300"
+
+                  >
+                    <Icon />
+                  </motion.a>)
+              })}
+
+            </motion.div>
 
           </div>
+        </div>
+        <div className="relative hidden lg:block">
+          <div
+            className=" absolute top-1/2 -translate-y-1/2 pointer-events-none"
+            style={{
+              right: "10px", width: "min(22vw,410px)", maxHeight: "min(40vw,500px)", borderRadius: "50%",
+              filter: "blur(38px)", opacity: 0.32,
+              background: "conic-gradient(from 0deg,#1cd8d2,#00bf8f,#302b63,#1cd8d2)"
+            }}
+
+          />
+          <motion.img
+            src={avator}
+            alt="Dhruv Sohal"
+            className="
+    absolute
+    top-1/2
+    left-1/2
+    -translate-x-1/2
+    -translate-y-1/2
+    w-[350px]
+    xl:w-[480px]
+    h-auto
+    object-contain
+    select-none
+    pointer-events-none
+  "
+            initial={{ opacity: 0, y: 40, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          />
         </div>
       </div>
 
