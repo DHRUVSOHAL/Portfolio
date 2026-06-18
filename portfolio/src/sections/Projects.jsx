@@ -34,19 +34,19 @@ export default function Projects() {
       {
         title: "Resume Analyser",
         link: "https://resume-analyser-frontend-12uo.onrender.com",
-        bgColor: "#262626",
+
         image: isMobile ? photo1 : img1, // use mobile or desktop image
       },
       {
         title: "Banking Ledger",
         link: "https://github.com/DHRUVSOHAL/Banking-ledger",
-        bgColor: "#0f172a",
+
         image: isMobile ? img2 : img2,
       },
       {
         title: "Voting-Application",
         link: "",
-        bgColor: "#0f172a",
+
         image: isMobile ? photo3 : img3,
       },
     ],
@@ -74,10 +74,14 @@ export default function Projects() {
       className="relative text-white"
       style={{
         height: `${100 * projects.length}vh`,
-        backgroundColor: activeProject.bgColor,
+        backgroundColor: 'black',
         transition: 'background-color 400ms ease '
       }}
     >
+      <div className="relative inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-0 w-[300px] h-[300px] rounded-full bg-gradient-to-r  from-[#00bf8f] to-[#1cd8d2] opacity-20 blur-[120px] animate-pulse" />
+        <div className="absolute bottom-1/4 right-0 w-[300px] h-[300px] rounded-full bg-gradient-to-r  from-[#00bf8f] to-[#1cd8d2] opacity-20 blur-[120px] animate-pulse" />
+      </div>
       <div
         className="sticky top-0 h-screen flex flex-col items-center justify-center">
         <h2
@@ -90,8 +94,8 @@ export default function Projects() {
           {projects.map((project, idx) => (
             <div key={project.title}
               className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ${activeIndex === idx
-                  ? "opacity-100 z-20"
-                  : "opacity-0 z-0 sm:z-10"
+                ? "opacity-100 z-20"
+                : "opacity-0 z-0 sm:z-10"
                 }`} style={{ width: "85%", maxWidth: "1200px" }}
             >
               <AnimatePresence mode="wait">
@@ -115,9 +119,9 @@ export default function Projects() {
                   </motion.h3>
                 )}
               </AnimatePresence>
-              <div className={` realtive w-full overflow-hidden bg-black/20 shadow-2xl md:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.7) ]${isMobile ? "mb-6 rounded-lg" : "mb-10 sm:mb-12 rounded-xl"
-                }
-              h-[62vh] sm :h-[66px]`}
+              <div className={`relative w-full overflow-hidden bg-black/20 shadow-2xl md:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.7)]
+ ${isMobile ? "mb-6 rounded-lg" : "mb-10 sm:mb-12 rounded-xl"}
+ h-[62vh] sm:h-[66vh]`}
                 style={{
                   zIndex: 10, transition: "box-shadow 250ms ease "
                 }}>
@@ -133,25 +137,24 @@ export default function Projects() {
                   loading="lazy"
                 />
                 <div className="pointer-events-none absolute inset-0"
-                style={{
-                  zIndex:11,
-                  background:"linear-gradient(180deg,rgba(0,0,0,0.12) 0%,rgba(0,0,0,0) 40%)"
-                }}
+                  style={{
+                    zIndex: 11,
+                    background: "linear-gradient(180deg,rgba(0,0,0,0.12) 0%,rgba(0,0,0,0) 40%)"
+                  }}
                 ></div>
               </div>
             </div>
           ))}
         </div>
         <div
-        className={`absolute ${
-          isMobile?"bottom-20":"bottom-10"
-        }`}
+          className={`absolute ${isMobile ? "bottom-20" : "bottom-10"
+            }`}
         >
           <a href={activeProject?.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-6 py-3  font-semibold text-black bg-white hover:bg-gray-200 transition-all"
-          aria-label={`View ${activeProject?.title}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-6 py-3  font-semibold text-black bg-white hover:bg-gray-200 transition-all"
+            aria-label={`View ${activeProject?.title}`}
           >View Project</a>
         </div>
       </div>
