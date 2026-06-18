@@ -38,14 +38,16 @@ useEffect(()=>{
         }
         const currentScrollY=window.scrollY
         if(currentScrollY > lastScrollY.current){
+            
             setvisible(false)//scrolling down
         }
         else{
             setvisible(true)
+        
             if(timerId.current)clearTimeout(timerId.current)
                 timerId.current=setTimeout(()=>{
                     setvisible(false)
-                },3000)
+                },1000)
         }
         lastScrollY.current=currentScrollY
 
@@ -65,7 +67,7 @@ useEffect(()=>{
 
     return (
 <>
-<nav className = {`fixed top-0 left-0 w-full flex items-center justify-between px-6 py-4 z-50 transition-transform duration-300 ${visible?"translate-y-0":"translate-y-full"} `}>
+<nav className = {`fixed top-0 left-0 w-full flex items-center justify-between px-6 py-4 z-50 transition-transform duration-300 ${visible?"translate-y-0":"-translate-y-full"} `}>
 
     <div className="flex items-center space-x-2 ">
         <img src={Logo} alt="Logo" className="h-8 w-8"/>
