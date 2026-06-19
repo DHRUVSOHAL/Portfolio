@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar";
 import About from "./sections/About";
-import Experiences from "./sections/Experiences";
+
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import Home from "./sections/Home";
@@ -30,7 +30,6 @@ export default function App() {
       <About />
       <Skills />
       <Projects />
-      <Experiences />
       <Testimonial />
       <Contact />
       <Footer />

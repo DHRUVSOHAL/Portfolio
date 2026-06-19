@@ -13,7 +13,7 @@ export default function OverlayMenu({isOpen,onClose}){
             initial={{clipPath:`circle(0% at ${origin})`}}
             animate={{clipPath:`circle(150% at ${origin})`}}
             exit={{clipPath:`circle(0% at ${origin})`}}
-            transition={{duration:3,ease:[0.4,0,0.2,1]}}
+            transition={{duration:1.5,ease:[0.4,0,0.2,1]}}
             style={{backgroundColor:`rgba(0,0,0,0.95)`}}
             
 >
@@ -28,8 +28,7 @@ export default function OverlayMenu({isOpen,onClose}){
                         "ABOUT",
                         "SKILLS",
                         "PROJECTS",
-                        "EXPERIENCE",
-                        "TESIMONIAL",
+                        "TESTIMONIAL",
                         "CONTACT",
                     ].map((item,index)=>(
                         <motion.li key={item}
