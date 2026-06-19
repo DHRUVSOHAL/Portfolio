@@ -165,7 +165,7 @@ export default function Contact() {
                 {status === "sending" ? "sending..." : status === "success" ? "Messge sent successfully ✅" : "Something went wrong ❌"}
               </p>)}
             <motion.button className="bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white py-3 rounded-md font-semibold transition"
-              whileHover={{ scale: 1.2 }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               disabled={status === "sending"}
               type="submit"

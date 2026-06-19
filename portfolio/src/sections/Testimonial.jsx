@@ -11,31 +11,31 @@ import m2 from "../assets/m2.PNG"
 export default function Testimonial() {
   const testimonials = [
     {
-      name: "Yash Sahu",
-      role: "Software Engineer at HCL Technologies",
+      name: "Satish",
+      role: "Student at NIT kkr",
       review:
-        "Gaurav is a visionary developer. His attention to detail and creativity blew us away. Our project was a massive success because of him.",
+        "Dhruv is a visionary developer. His attention to detail and creativity blew us away. Our project was a massive success because of him.",
       image: m1,
     },
     {
-      name: "Heather Forster",
-      role: "UI/UX Designer at PixelWorks",
+      name: "Dev",
+      role: "Student at NIT kkr",
       review:
-        "Working with Gaurav was an absolute pleasure. He brings design and code together like magic. Highly recommend him!",
+        "Working with Dhruv was an absolute pleasure. He brings design and code together like magic. Highly recommend him!",
       image: w1,
     },
     {
-      name: "Amy Jacobsan",
-      role: "Tech Manager at CodeEmpire",
+      name: "Harsh Yadav",
+      role: "Student at NIT kkr",
       review:
-        "From concept to execution, Gaurav handled everything flawlessly. His work ethic and innovation are unmatched.",
+        "From concept to execution, Dhruv handled everything flawlessly. His work ethic and innovation are unmatched.",
       image: m2,
     },
     {
-      name: "Carry Smith",
-      role: "CTO at Innovate Labs",
+      name: "Hardik",
+      role: "SDM at Coca Cola",
       review:
-        "Gaurav transformed our outdated platform into something modern and powerful. His skills are world-class.",
+        "Dhruv transformed our outdated platform into something modern and powerful. His skills are world-class.",
       image: w2,
     },
   ];
