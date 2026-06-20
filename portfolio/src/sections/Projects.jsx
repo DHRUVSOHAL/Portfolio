@@ -2,7 +2,7 @@ import { useEffect, useState, useRef, useMemo } from "react"
 
 import { motion, useMotionValue, useMotionValueEvent } from "framer-motion"
 import img1 from "../assets/img1.png"
-import img2 from "../assets/img2.jpg"
+import img2 from "../assets/img2.JPG"
 import img3 from "../assets/img3.png"
 import photo1 from "../assets/photo1.png"
 import photo3 from "../assets/photo3.png"
