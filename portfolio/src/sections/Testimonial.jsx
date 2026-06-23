@@ -4,7 +4,7 @@ import { useMemo, useState, useEffect, useRef } from "react"
 import { motion, useMotionValue } from "framer-motion"
 import m1 from "../assets/m1.jpeg"
 import w1 from "../assets/w1.PNG"
-import w2 from "../assets/w2.PNG"
+import w2 from "../assets/w2.png"
 import m2 from "../assets/m2.PNG"
 
 
@@ -18,15 +18,15 @@ export default function Testimonial() {
       image: m1,
     },
     {
-      name: "Dev",
+      name: "Hariom",
       role: "Student at NIT kkr",
       review:
         "Working with Dhruv was an absolute pleasure. He brings design and code together like magic. Highly recommend him!",
       image: w1,
     },
     {
-      name: "Harsh Yadav",
-      role: "Student at NIT kkr",
+      name: "Arnav Kaushik",
+      role: "Student at NIT Hamirpur",
       review:
         "From concept to execution, Dhruv handled everything flawlessly. His work ethic and innovation are unmatched.",
       image: m2,
