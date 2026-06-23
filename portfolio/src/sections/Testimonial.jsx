@@ -4,7 +4,7 @@ import { useMemo, useState, useEffect, useRef } from "react"
 import { motion, useMotionValue } from "framer-motion"
 import m1 from "../assets/m1.jpeg"
 import w1 from "../assets/w1.PNG"
-import w2 from "../assets/w2.png"
+import w2 from "../assets/w2.PNG"
 import m2 from "../assets/m2.PNG"
 
 
